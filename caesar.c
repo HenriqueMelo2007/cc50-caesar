@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 
 int main(int argc, char const *argv[])
@@ -10,15 +11,24 @@ int main(int argc, char const *argv[])
     return 1;
   }
 
-  char *textoSimples;
+  char *textoSimples = (char *)malloc(100);
+  int key = atoi(argv[1]);
 
-  printf("Sua chave: %s\n", argv[1]);
+  printf("Sua chave: %i\n", key);
 
   printf("Texto simples: ");
   scanf("%s", textoSimples);
 
+  for (int i = 0; textoSimples[i] != '\0'; i++) {
+    printf("%c", textoSimples[i]);
+  }
+
   printf("Texto cifrado: \n");
-  
+
+
+
+  free(textoSimples);
+
 
   return 0;
 }
