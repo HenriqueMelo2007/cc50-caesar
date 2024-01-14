@@ -21,11 +21,27 @@ int main(int argc, char const *argv[])
 
 
   printf("Texto cifrado: ");
+
   for (int i = 0; textoSimples[i] != '\0'; i++) {
 
-    if ( ( textoSimples[i] >= 65 && textoSimples[i] <= 90 ) || ( textoSimples[i] >= 97 && textoSimples[i] <= 122 ) ) {
+    if (textoSimples[i] >= 65 && textoSimples[i] <= 90) {
+
+      for (int b = 0; b < key; b++) {
+       textoSimples[i]++;
+       if ( textoSimples[i] > 90 ) {
+        textoSimples[i] -= 26;
+       }
+      
+      }   
+       printf("%c", textoSimples[i]);
+
+    } 
+
+    else if (textoSimples[i] >= 97 && textoSimples[i] <= 122) {
       printf("%c", textoSimples[i] + key);
-    } else {
+    } 
+
+    else {
       printf("%c", textoSimples[i]);
     } 
   }
