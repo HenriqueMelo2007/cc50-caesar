@@ -19,16 +19,19 @@ int main(int argc, char const *argv[])
   printf("Texto simples: ");
   scanf("%s", textoSimples);
 
-  for (int i = 0; textoSimples[i] != '\0'; i++) {
-    printf("%c", textoSimples[i]);
-  }
 
-  printf("Texto cifrado: \n");
+  printf("Texto cifrado: ");
+  for (int i = 0; textoSimples[i] != '\0'; i++) {
+
+    if ( ( textoSimples[i] >= 65 && textoSimples[i] <= 90 ) || ( textoSimples[i] >= 97 && textoSimples[i] <= 122 ) ) {
+      printf("%c", textoSimples[i] + key);
+    } else {
+      printf("%c", textoSimples[i]);
+    } 
+  }
 
 
 
   free(textoSimples);
-
-
   return 0;
 }
