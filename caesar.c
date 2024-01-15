@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
     return 1;
   }
 
-  char *textoSimples = (char *)malloc(100);
+  char textoSimples[100];
   int key = atoi(argv[1]);
 
   printf("Sua chave: %i\n", key);
@@ -46,8 +46,6 @@ int main(int argc, char const *argv[])
   }
 
 
-
-  free(textoSimples);
   return 0;
 }
 
