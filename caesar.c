@@ -13,13 +13,13 @@ int main(int argc, char const *argv[])
     return 1;
   }
 
-  char textoSimples[100];
+  char textoSimples[1000];
   int key = atoi(argv[1]);
 
   printf("Sua chave: %i\n", key);
 
   printf("Texto simples: ");
-  scanf("%s", textoSimples);
+  fgets(textoSimples, sizeof(textoSimples), stdin);
 
 
   printf("Texto cifrado: ");
