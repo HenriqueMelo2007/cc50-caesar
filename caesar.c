@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <locale.h>
 
+int cipherTransformation (int valueChar, int maxValue);
+
 int main(int argc, char const *argv[])
 {
   setlocale(LC_ALL, "Portuguese_Brazil");
@@ -24,7 +26,9 @@ int main(int argc, char const *argv[])
 
   for (int i = 0; textoSimples[i] != '\0'; i++) {
 
-    if (textoSimples[i] >= 65 && textoSimples[i] <= 90) {
+    int valueChar = (int) textoSimples[i];
+
+    if (valueChar >= 65 && valueChar <= 90) {
 
       for (int b = 0; b < key; b++) {
        textoSimples[i]++;
@@ -37,7 +41,7 @@ int main(int argc, char const *argv[])
 
     } 
 
-    else if (textoSimples[i] >= 97 && textoSimples[i] <= 122) {
+    else if (valueChar >= 97 && valueChar <= 122) {
       printf("%c", textoSimples[i] + key);
     } 
 
@@ -51,3 +55,5 @@ int main(int argc, char const *argv[])
   free(textoSimples);
   return 0;
 }
+
+int cipherTransformation (int valueChar, int maxValue) {}
