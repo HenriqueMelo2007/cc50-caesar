@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int cipherTransformation (int valueChar, int maxValue);
+int cipherTransformation (int key, int valueChar, int maxValue);
 
 int main(int argc, char const *argv[])
 {
@@ -30,19 +30,14 @@ int main(int argc, char const *argv[])
 
     if (valueChar >= 65 && valueChar <= 90) {
 
-      for (int b = 0; b < key; b++) {
-       textoSimples[i]++;
-       if ( textoSimples[i] > 90 ) {
-        textoSimples[i] -= 26;
-       }
-      
-      }   
-       printf("%c", textoSimples[i]);
-
+      int cipherCaracter = cipherTransformation(key, valueChar, 90); 
+      printf("%c", cipherCaracter);
     } 
 
     else if (valueChar >= 97 && valueChar <= 122) {
-      printf("%c", textoSimples[i] + key);
+
+      int cipherCaracter = cipherTransformation(key, valueChar, 122); 
+      printf("%c", cipherCaracter);
     } 
 
     else {
@@ -56,4 +51,14 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-int cipherTransformation (int valueChar, int maxValue) {}
+int cipherTransformation (int key, int valueChar, int maxValue) {
+
+  for (int i = 0; i < key; i++) {
+       valueChar++;
+       if ( valueChar > maxValue ) {
+        valueChar -= 26;
+       }   
+  }
+
+  return valueChar; 
+}
