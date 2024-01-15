@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
   setlocale(LC_ALL, "Portuguese_Brazil");
 
   if (argc != 2) {
-    printf("Defina atrav�s da interface de linha de comando uma �nica chave para a cifra de Caesar!");
+    printf("Defina através da interface de linha de comando uma única chave para a cifra de Caesar!");
     return 1;
   }
 
